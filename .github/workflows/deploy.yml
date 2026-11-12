@@ -1,0 +1,137 @@
+name: Build & Deploy
+
+# ============================================================================
+# ДЕПЛОЙ САЙТА «Строят Крымчане» ЧЕРЕЗ GITHUB ACTIONS
+#
+# Что происходит:
+#   1. build  — на каждом push и PR: сборка Next.js standalone-бандла
+#               (внутрь бандла уже скопированы .next/static и public —
+#               это делает скрипт `npm run build`).
+#   2. deploy — только push в main: бандл заливается на VPS по SSH,
+#               схема БД применяется ИДЕМПОТЕНТНО (данные заявок не трогаются),
+#               релиз подменяется папкой, pm2 перезапускает сервер.
+#
+# СЕКРЕТЫ РЕПОЗИТОРИЯ (Settings → Secrets and variables → Actions):
+#   SSH_HOST        — IP или домен сервера, например 203.0.113.10
+#   SSH_USER        — пользователь SSH, например root или deploy
+#   SSH_PRIVATE_KEY — приватный ключ (cat ~/.ssh/id_ed25519, целиком,
+#                     с строками BEGIN/END). Публичная часть ключа должна
+#                     лежать на сервере в ~/.ssh/authorized_keys
+#   SSH_PORT        — (необязательно) если SSH не на 22 порту, раскомментируйте
+#                     строки `port:` ниже и впишите секрет.
+# ============================================================================
+
+on:
+  push:
+    branches: [main]      # деплой только из основной ветки
+  pull_request:           # на PR — только проверка сборки, без деплоя
+  workflow_dispatch:      # кнопка «Run workflow» во вкладке Actions
+
+# Не запускать два деплоя параллельно; текущий деплой не прерывать
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+env:
+  # В CI SQLite нужна только для проверки схемы перед сборкой.
+  # На сервере путь к БД живёт в .env на самом сервере (см. шаг deploy).
+  DATABASE_URL: file:${{ github.workspace }}/db/custom.db
+
+jobs:
+  # ------------------------------------------------------------------ build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Установка зависимостей
+        run: npm ci
+
+      - name: Генерация клиента Prisma
+        run: npx prisma generate
+
+      - name: Проверка схемы БД (временная SQLite в CI)
+        run: npm run db:push
+
+      - name: Production-сборка (standalone + статика внутри)
+        run: npm run build
+
+      - name: Контроль артефакта
+        run: |
+          test -f .next/standalone/server.js
+          test -d .next/standalone/.next/static
+          test -d .next/standalone/public
+          echo "Бандл собран корректно"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-bundle
+          retention-days: 3
+          path: |
+            .next/standalone/
+            prisma/schema.prisma
+
+  # ----------------------------------------------------------------- deploy
+  deploy:
+    # Деплоим только настоящий push в main (не PR и не ручной прогон из ветки)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-bundle
+          path: bundle
+
+      # Кладём бандл во «входящую» папку — текущий релиз не трогаем,
+      # подмена происходит одной командой mv (практически без даунтайма)
+      - name: Загрузка бандла на сервер
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # port: ${{ secrets.SSH_PORT }}       # если SSH не на 22 порту
+          source: "bundle/*"
+          target: /opt/stryat/incoming
+          rm: true
+
+      - name: Активация релиза, схема БД, перезапуск pm2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # port: ${{ secrets.SSH_PORT }}       # если SSH не на 22 порту
+          script: |
+            set -e
+            cd /opt/stryat
+
+            # 1. База данных живёт ТОЛЬКО на сервере и деплоем не перезаписывается.
+            #    Если БД ещё нет — prisma db push создаст файл и таблицу Lead.
+            mkdir -p db
+            export DATABASE_URL="file:/opt/stryat/db/custom.db"
+            npx -y prisma@6 db push --schema incoming/prisma/schema.prisma --skip-generate
+
+            # 2. Подмена релиза (старый оставляем один шаг — быстрый откат)
+            rm -rf old
+            [ -d current ] && mv current old
+            mv incoming current
+
+            # 3. Переменные окружения — в папку приложения (standalone читает .env)
+            cp .env current/.env
+
+            # 4. Перезапуск под pm2 (процесс поднимется сам и после ребута сервера)
+            pm2 restart stryat 2>/dev/null || \
+              NODE_ENV=production PORT=3000 HOSTNAME=127.0.0.1 \
+              pm2 start current/server.js --name stryat --time
+            pm2 save
+
+            # 5. Здоровье: сервер должен ответить 200
+            sleep 3
+            curl -fsS -o /dev/null -w "HTTP %{http_code}\n" http://127.0.0.1:3000/

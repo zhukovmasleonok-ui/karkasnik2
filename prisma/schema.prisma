@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/* Заявка с сайта: форма консультации, обратный звонок, квиз подбора, экскурсия */
+model Lead {
+  id         String   @id @default(cuid())
+  type       String   // consult | callback | quiz | tour | contact | mortgage
+  name       String
+  phone      String
+  email      String?
+  message    String?
+  city       String?  // город строительства (квиз)
+  technology String?  // выбранная технология (квиз)
+  area       String?  // площадь/бюджет (квиз)
+  source     String?  // страница, с которой отправлена форма
+  consent    Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
