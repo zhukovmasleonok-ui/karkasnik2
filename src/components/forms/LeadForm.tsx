@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 export type LeadFormProps = {
   type: 'consult' | 'callback' | 'quiz' | 'tour' | 'contact' | 'mortgage';
@@ -55,29 +56,13 @@ export function LeadForm({
     setStatus('sending');
     setServerError('');
     try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type,
-          name: name.trim(),
-          phone: phone.trim(),
-          email: email.trim(),
-          message: message.trim(),
-          source,
-          consent,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        if (data?.fieldErrors) setErrors(data.fieldErrors);
-        setServerError(data?.error ?? 'Не удалось отправить заявку');
-        setStatus('error');
-        return;
-      }
+      // Статический GitHub Pages: серверного API нет, заявка никуда не отправляется.
+      // TODO-INTEGRATION: подключить Telegram-бота / Formspree / Web3Forms — сюда
+      // передавать собранные поля (type, name, phone, email, message, source, consent).
+      await new Promise((r) => setTimeout(r, 700)); // имитация отправки
       setStatus('success');
     } catch {
-      setServerError('Проблема с соединением. Позвоните нам — поможем.');
+      setServerError('Не удалось отправить заявку. Позвоните нам — поможем.');
       setStatus('error');
     }
   }
@@ -205,11 +190,11 @@ export function LeadForm({
           />
           <span>
             Согласен(на) на{' '}
-            <a href="/privacy" className="text-pine underline underline-offset-2" target="_blank">
+            <a href={asset('/privacy')} className="text-pine underline underline-offset-2" target="_blank">
               обработку персональных данных
             </a>{' '}
             в соответствии с{' '}
-            <a href="/privacy" className="text-pine underline underline-offset-2" target="_blank">
+            <a href={asset('/privacy')} className="text-pine underline underline-offset-2" target="_blank">
               политикой конфиденциальности
             </a>
             . <span className="text-oak">*</span>

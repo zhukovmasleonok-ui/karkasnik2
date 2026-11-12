@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, Home } from 'lucide-react';
 import { cities, technologies } from '@/content/site';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 /**
  * Квиз подбора дома — по реальной воронке компании
  * («В каком городе вы планируете строительство?» и т.д.).
- * Отправка: POST /api/leads (type: quiz).
+ * На GitHub Pages отправка не выполняется (сервера нет) — показываем
+ * успех. Место для интеграции отмечено TODO-INTEGRATION ниже.
  */
 export function HomeQuiz() {
   const [step, setStep] = useState(0); // 0..2 вопросы, 3 — контакты, 4 — готово
@@ -51,29 +53,13 @@ export function HomeQuiz() {
     setSending(true);
     setServerError('');
     try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'quiz',
-          name: name.trim(),
-          phone: phone.trim(),
-          city: chosenCity ?? '',
-          technology: chosenTech ?? '',
-          area: area ?? '',
-          source: 'quiz-selection',
-          consent,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        if (data?.fieldErrors) setErrors(data.fieldErrors);
-        setServerError(data?.error ?? 'Не удалось отправить. Попробуйте позвонить.');
-        return;
-      }
+      // Статический GitHub Pages: серверного API нет, заявка никуда не отправляется.
+      // TODO-INTEGRATION: подключить Telegram-бота / Formspree / Web3Forms — сюда
+      // передавать собранные данные (type: quiz, name, phone, city, technology, area).
+      await new Promise((r) => setTimeout(r, 700)); // имитация отправки
       setDone(true);
     } catch {
-      setServerError('Проблема с соединением. Позвоните нам — поможем.');
+      setServerError('Не удалось отправить. Попробуйте позвонить.');
     } finally {
       setSending(false);
     }
@@ -325,7 +311,7 @@ export function HomeQuiz() {
               />
               <span>
                 Согласен(на) на{' '}
-                <a href="/privacy" target="_blank" className="text-pine underline underline-offset-2">
+                <a href={asset('/privacy')} target="_blank" className="text-pine underline underline-offset-2">
                   обработку персональных данных
                 </a>
                 . <span className="text-oak">*</span>

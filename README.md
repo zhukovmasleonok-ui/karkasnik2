@@ -4,33 +4,29 @@
 
 ## Стек
 
-- Next.js 16 (App Router) + TypeScript
+- Next.js 16 (App Router) + TypeScript, статическая сборка (`output: export`)
 - Tailwind CSS 4, дизайн-токены в `src/app/globals.css`
-- Prisma + SQLite (`db/custom.db`, модель `Lead`)
+- Хостинг — GitHub Pages (сервера и базы нет; заявки форм пока не отправляются)
 - shadcn/ui, lucide-react, sonner
 
 ## Как запустить
 
 ```bash
-npm install          # если зависимости ещё не стоят
-npm run build        # production-сборка (standalone + копирование статики)
-npm start            # сервер на :3000
-# разработка: npm run dev
+npm install       # если зависимости ещё не стоят
+npm run dev       # разработка на :3000
+npm run build     # статическая сборка в папку out/
+npm run preview   # локальный просмотр готового сайта (npx serve out)
 ```
 
-База данных: `npm run db:push` (Prisma-схема уже готова, файл БД `db/custom.db` существует).
+## Деплой на GitHub Pages (без VPS, SSH и секретов)
 
-## Деплой через GitHub Actions (автоматический)
-
-В репозитории лежит готовый workflow `.github/workflows/deploy.yml`:
-push в `main` → GitHub сам собирает standalone-бандл → заливает на сервер по SSH →
-применяет схему БД (данные заявок не трогаются) → перезапускает pm2 → проверяет HTTP 200.
-На pull-запросы и ручной запуск (вкладка Actions → Run workflow) работает только сборка-проверка.
+В репозитории лежит готовый workflow `.github/workflows/gh-pages.yml`
+(официальные actions на встроенном токене — никакие секреты задавать не нужно).
 
 ### 1. Залить проект на GitHub
 
 ```bash
-# распакуйте архив, зайдите в папку, затем:
+# в папке проекта:
 git init -b main
 git add .
 git commit -m "Сайт «Строят Крымчане»"
@@ -38,74 +34,33 @@ git remote add origin git@github.com:ВАШ_ЛОГИН/stryat-krymchane.git
 git push -u origin main
 ```
 
-База данных (`db/*.db`) и `.env` в git не попадают — это правильные исключения в `.gitignore`.
+> ⚠️ Имя репозитория берите латиницей (например `stryat-krymchane`) —
+> оно станет частью адреса `https://ВАШ_ЛОГИН.github.io/имя-репозитория/`.
 
-### 2. Одноразовая подготовка сервера
+### 2. Включить Pages
 
-```bash
-# на сервере (Ubuntu/Debian):
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt install -y nodejs
-sudo npm i -g pm2 && pm2 startup      # автозапуск pm2 после ребута
-sudo mkdir -p /opt/stryat && sudo chown $USER /opt/stryat
-mkdir -p /opt/stryat/db
-echo 'DATABASE_URL=file:/opt/stryat/db/custom.db' > /opt/stryat/.env
-# доступ по ключу (если ещё не настроен):
-ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519   # на вашем компьютере
-ssh-copy-id user@server                            # положить публичный ключ на сервер
-```
+`Settings → Pages` → **Source: «GitHub Actions»** (ветку и папку выбирать не нужно —
+деплой полностью автоматический). Первая публикация случится при следующем push
+(или вкладка **Actions → Run workflow**).
 
-Проксирование на 80/443 + HTTPS — через Caddy (пример в `Caddyfile`) или Nginx + certbot.
-
-### 3. Секреты в GitHub
-
-`Settings → Secrets and variables → Actions → New repository secret`:
-
-| Секрет | Значение |
-| --- | --- |
-| `SSH_HOST` | IP или домен сервера |
-| `SSH_USER` | SSH-пользователь |
-| `SSH_PRIVATE_KEY` | приватный ключ целиком (включая `BEGIN/END`) |
-
-SSH не на 22 порту — раскомментируйте строки `port:` в workflow.
-
-### 4. Деплой
+### 3. Обновления
 
 ```bash
-git add . && git commit -m "обновление" && git push   # → Actions соберёт и задеплоит сам
+git add . && git commit -m "обновление" && git push
 ```
 
-Ход выполнения — во вкладке **Actions** репозитория. Откат: на сервере
-`cd /opt/stryat && rm -rf current && mv old current && pm2 restart stryat`.
+Actions сам соберёт статику и опубликует. Ход — во вкладке **Actions**.
 
-**Альтернатива без Actions:** Vercel — импортировать репозиторий на vercel.com,
-команда сборки `npm run build`; но SQLite-заявки тогда лучше вынести на VPS-вариант
-или Turso/Postgres.
+### Полезное
 
-## Деплой на сервер вручную (VPS)
-
-Требования: Node.js 20+ (или Bun 1.1+), 1 ГБ RAM достаточно.
-
-```bash
-# 1. Распаковать архив и зайти в папку проекта
-npm ci               # или npm install / bun install
-npx prisma generate  # клиент Prisma
-npm run db:push      # создать/синхронизировать SQLite (файл db/custom.db)
-npm run build        # сборка: Next standalone + статика копируются автоматически
-
-# 2. Запуск (standalone-сервер не требует node_modules)
-NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 node .next/standalone/server.js
-```
-
-Рекомендуется держать процесс под pm2/systemd и проксировать через Nginx/Caddy
-на 80/443 с HTTPS-сертификатом (certbot). Пример Caddy-конфига — файл `Caddyfile`.
-
-**Деплой на Vercel** (альтернатива): импортировать репозиторий, команда build —
-`npm run build`, Vercel сам выставит `next start`; SQLite заменить на Turso/Postgres
-или оставить файловую БД на VPS-варианте.
-
-После переноса на боевой домен проверить `metadataBase` в `src/app/layout.tsx`
-(сейчас — `https://строяткрымчане.рф` в punycode: `xn--80aknigcncfkc7d8byc.xn--p1ai`)
-и то же значение в `src/app/sitemap.ts`.
+- Адрес меняется на свой домен: `Settings → Pages → Custom domain` (DNS-запись CNAME).
+- Заявки из форм (консультация, квиз, звонок) на статическом сайте никуда не отправляются —
+  форма красиво показывает «Спасибо». Для реального приёма заявок подключите
+  Telegram-бота / Formspree в `src/components/forms/LeadForm.tsx` и
+  `src/components/selection/HomeQuiz.tsx` (места помечены `TODO-INTEGRATION`).
+- После переноса на боевой домен проверить `metadataBase` в `src/app/layout.tsx`
+  (сейчас — `https://строяткрымчане.рф` в punycode: `xn--80aknigcncfkc7d8byc.xn--p1ai`)
+  и то же значение в `src/app/sitemap.ts`.
 
 ## Структура
 
@@ -113,7 +68,7 @@ NODE_ENV=production PORT=3000 HOSTNAME=0.0.0.0 node .next/standalone/server.js
 src/
   app/                 страницы: /, technologies, projects, projects/[slug],
                        selection (квиз), portfolio, about, mortgage, contacts,
-                       privacy + API /api/leads, sitemap, robots
+                       privacy
   content/site.ts      ЕДИНЫЙ источник контента: факты, цены, тексты, nav
   components/
     layout/            Header, Footer, Logo, SectionHeading, Reveal, Gallery
@@ -142,14 +97,13 @@ src/
 ## Что уже работает
 
 - Все страницы и ссылки, мобильное меню, SEO-мета + OG, sitemap.xml, robots.txt
-- Квиз «за 4 шага»: город → технология → бюджет → контакты; заявка пишется в БД (таблица `Lead`, поля name/phone/email/city/technology/area/source/consent)
+- Квиз «за 4 шага»: город → технология → бюджет → контакты (результат показывается, но никуда не отправляется)
 - Формы с валидацией имени и телефона + обязательное согласие на обработку данных
 - Калькуляторы ипотеки и стоимости, фильтры каталога
-- Заявки смотреть: `sqlite db/custom.db` / Prisma Studio (`npx prisma studio`)
 
 ## Что подключить при переносе на боевой домен (TODO)
 
-1. **Уведомления о заявках** — сейчас лиды только в БД. Подключить Telegram-бот или e-mail (webhook в `src/app/api/leads/route.ts`).
+1. **Уведомления о заявках** — пока формы никуда не отправляются. Подключить Telegram-бот или Formspree в `LeadForm.tsx` / `HomeQuiz.tsx` (места помечены `TODO-INTEGRATION`).
 2. **Реальные фото объектов** — часть визуалов (`project-*.jpg`, `hero-aframe.jpg`, `interior.jpg`, `terrace.jpg`, `work-*-clean.jpg`) — сгенерированные демо-изображения (помечены `isDemoImage`). Заменить съёмкой готовых домов. Слайды компании с подписями (`work-aframe.jpg`, `work-brick.jpg` в «Портфолио») — реальные, текст на них из ваших материалов.
 3. **Карта офиса/работы** — на «Контактах» заглушка-схема; подключить Яндекс.Карты.
 4. **Соцсети** — ссылки-заглушки в футере (`site.ts → company.socials`).

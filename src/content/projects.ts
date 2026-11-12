@@ -3,6 +3,7 @@
  * 27 моделей: названия, площади, состав помещений, три уровня цен, описания, фото.
  * Источник: /projects/* старого сайта. Сгенерировано scripts/gen_content_ts.py.
  */
+import { asset } from '@/lib/paths';
 
 export type ProjectTech = 'sip' | 'prefab' | 'modular';
 
@@ -48,7 +49,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 45,6 м², и это удивительно продуманное пространство, где каждая деталь работает на ваш комфорт и выгоду. Две спальни (7,10 м² и 13,31 м²) обеспечат уютный сон для членов семьи или комфортное размещение гостей, даря каждому тишину и спокойствие. Просторная кухня-гостиная площадью 27,67 м² становится центром домашней жизни — здесь можно готовить, собираться за общим столом, принимать друзей или создавать атмосферу уюта для постояльцев. Современный санузел площадью 5,32 м² дополняет безупречную функциональность.',
       'Гармония Крыма — это уникальный гибрид дома и бизнес-актива . Для вас это тёплое семейное пространство с продуманной планировкой. А если вы решите сдавать его в аренду — две спальни позволят размещать больше гостей, увеличивая ваш потенциальный доход, а просторная общая зона создаст ощущение простора и уюта, за который постояльцы будут возвращаться снова и снова.',
     ],
-    images: ['/images/objects/garmoniya-kryma-1.jpg', '/images/objects/garmoniya-kryma-2.png', '/images/objects/garmoniya-kryma-3.jpg', '/images/objects/garmoniya-kryma-4.jpg', '/images/objects/garmoniya-kryma-5.jpg', '/images/objects/garmoniya-kryma-6.jpg'],
+    images: [asset('/images/objects/garmoniya-kryma-1.jpg'), asset('/images/objects/garmoniya-kryma-2.png'), asset('/images/objects/garmoniya-kryma-3.jpg'), asset('/images/objects/garmoniya-kryma-4.jpg'), asset('/images/objects/garmoniya-kryma-5.jpg'), asset('/images/objects/garmoniya-kryma-6.jpg')],
     imageAlt: 'Гармония Крыма (А-фрейм) — проект дома в Крыму',
   },
   {
@@ -79,7 +80,7 @@ export const realProjects: RealProject[] = [
       'Особая гордость проекта — терраса общей площадью 46 м², протянувшаяся вдоль двух сторон дома . Это не просто терраса — это целая открытая гостиная, где можно устраивать обеды на свежем воздухе, принимать гостей, читать книги в тени и загорать в уютных креслах. Благодаря Г-образному охвату дома, здесь всегда можно найти и солнечный, и затенённый уголок — идеальное пространство для жизни под открытым небом круглый год.',
       'Виноградная долина — здесь каждый квадратный метр продуман для того, чтобы жизнь была просторной, светлой и по-настоящему счастливой.',
     ],
-    images: ['/images/objects/vinogradnaya-dolina-1.jpg', '/images/objects/vinogradnaya-dolina-2.png', '/images/objects/vinogradnaya-dolina-3.jpg', '/images/objects/vinogradnaya-dolina-4.jpg', '/images/objects/vinogradnaya-dolina-5.jpg', '/images/objects/vinogradnaya-dolina-6.jpg'],
+    images: [asset('/images/objects/vinogradnaya-dolina-1.jpg'), asset('/images/objects/vinogradnaya-dolina-2.png'), asset('/images/objects/vinogradnaya-dolina-3.jpg'), asset('/images/objects/vinogradnaya-dolina-4.jpg'), asset('/images/objects/vinogradnaya-dolina-5.jpg'), asset('/images/objects/vinogradnaya-dolina-6.jpg')],
     imageAlt: 'Виноградная долина — проект дома в Крыму',
   },
   {
@@ -110,7 +111,7 @@ export const realProjects: RealProject[] = [
       'На втором этаже — три отдельные спальни (11,02 м², 10,08 м² и 19,13 м²), каждая из которых станет личным уголком для членов семьи. Дополняет картину ещё один санузел (3,20 м²) и коридор (2,44 м²), обеспечивающий удобную навигацию по этажу.',
       'Открытая терраса площадью 7,41 м² — это камерное пространство для расслабленного отдыха: достаточно места для удобных кресел и небольшого столика, чтобы проводить вечера с книгой или чашкой чая в кругу самых близких.',
     ],
-    images: ['/images/objects/krymskaya-usadba-1.jpg', '/images/objects/krymskaya-usadba-2.png', '/images/objects/krymskaya-usadba-3.jpg', '/images/objects/krymskaya-usadba-4.jpg', '/images/objects/krymskaya-usadba-5.jpg', '/images/objects/krymskaya-usadba-6.jpg'],
+    images: [asset('/images/objects/krymskaya-usadba-1.jpg'), asset('/images/objects/krymskaya-usadba-2.png'), asset('/images/objects/krymskaya-usadba-3.jpg'), asset('/images/objects/krymskaya-usadba-4.jpg'), asset('/images/objects/krymskaya-usadba-5.jpg'), asset('/images/objects/krymskaya-usadba-6.jpg')],
     imageAlt: 'Крымская усадьба — проект дома в Крыму',
   },
   {
@@ -141,7 +142,7 @@ export const realProjects: RealProject[] = [
       'Особый шарм проекту придаёт большая открытая терраса площадью 40,75 м² — пространство, где вы или ваши гости будете наслаждаться утренним кофе с видом на море, закатными вечерами и тёплыми крымскими ночами. Это та деталь, которая превращает обычное жильё в место, куда хочется возвращаться снова и снова.',
       'Южный горизонт — это уникальный гибрид дома и бизнес-актива . Для вас это тёплое семейное пространство с продуманной планировкой. А если вы решите сдавать его в аренду — оптимальная площадь, продуманная планировка и высокая туристическая привлекательность гарантируют стабильный доход и быструю окупаемость.',
     ],
-    images: ['/images/objects/yuzhnyy-gorizont-1.jpg', '/images/objects/yuzhnyy-gorizont-2.png', '/images/objects/yuzhnyy-gorizont-3.jpg', '/images/objects/yuzhnyy-gorizont-4.jpg', '/images/objects/yuzhnyy-gorizont-5.jpg', '/images/objects/yuzhnyy-gorizont-6.jpg'],
+    images: [asset('/images/objects/yuzhnyy-gorizont-1.jpg'), asset('/images/objects/yuzhnyy-gorizont-2.png'), asset('/images/objects/yuzhnyy-gorizont-3.jpg'), asset('/images/objects/yuzhnyy-gorizont-4.jpg'), asset('/images/objects/yuzhnyy-gorizont-5.jpg'), asset('/images/objects/yuzhnyy-gorizont-6.jpg')],
     imageAlt: 'Южный горизонт — проект дома в Крыму',
   },
   {
@@ -170,7 +171,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 30 м² (6 на 5 м), и это продуманное пространство, где нет ничего лишнего, но есть всё для комфортной жизни. Уютная спальня площадью 8,68 м² станет тихой гаванью для отдыха, а кухня-гостиная площадью 14,81 м² объединяет зоны приготовления и отдыха, создавая идеальное пространство для семейных ужинов или общения с гостями. Современный санузел площадью 2,55 м² дополняет функциональность и комфорт.',
       'Компактность этого проекта — его главное преимущество. Для вас это тёплое и уютное жильё у моря. А если вы решите сдавать его в аренду — минимальные затраты на строительство, быстрая окупаемость и высокая востребованность у туристов делают «Лазурный Крым» выгодным вложением в ваш будущий доход. Это готовое решение для тех, кто хочет жить у моря или создать собственный бизнес в одном из самых живописных уголков полуострова.',
     ],
-    images: ['/images/objects/lazurnyy-krym-1.jpg', '/images/objects/lazurnyy-krym-2.png', '/images/objects/lazurnyy-krym-3.jpg', '/images/objects/lazurnyy-krym-4.jpg', '/images/objects/lazurnyy-krym-5.jpg', '/images/objects/lazurnyy-krym-6.jpg'],
+    images: [asset('/images/objects/lazurnyy-krym-1.jpg'), asset('/images/objects/lazurnyy-krym-2.png'), asset('/images/objects/lazurnyy-krym-3.jpg'), asset('/images/objects/lazurnyy-krym-4.jpg'), asset('/images/objects/lazurnyy-krym-5.jpg'), asset('/images/objects/lazurnyy-krym-6.jpg')],
     imageAlt: 'Лазурный Крым — проект дома в Крыму',
   },
   {
@@ -200,7 +201,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 62,1 м² (9 на 6.9 м), и это идеальное пространство, где каждая комната дышит уютом. Две спальни (9,0 м² и 8,50 м²) подарят спокойствие и тишину после долгого дня. Кухня-гостиная площадью 25,1 м² — это центр семейной жизни, где готовят, общаются и создают тёплые воспоминания каждый день.',
       'Но настоящая жемчужина этого проекта — открытая терраса площадью 18 м² (9 на 2 м), где можно встречать рассветы с чашкой кофе, устраивать летние обеды на свежем воздухе и наслаждаться крымскими закатами в кругу семьи. Продуманная планировка включает удобный тамбур (2,50 м²), функциональную котельную (5,10 м²) и санузел (3,0 м²) — всё для того, чтобы ваш дом был не просто красивым, но и максимально удобным для жизни.',
     ],
-    images: ['/images/objects/koba-kaya-orel-1.jpg', '/images/objects/koba-kaya-orel-2.png', '/images/objects/koba-kaya-orel-3.jpg', '/images/objects/koba-kaya-orel-4.jpg', '/images/objects/koba-kaya-orel-5.jpg', '/images/objects/koba-kaya-orel-6.jpg'],
+    images: [asset('/images/objects/koba-kaya-orel-1.jpg'), asset('/images/objects/koba-kaya-orel-2.png'), asset('/images/objects/koba-kaya-orel-3.jpg'), asset('/images/objects/koba-kaya-orel-4.jpg'), asset('/images/objects/koba-kaya-orel-5.jpg'), asset('/images/objects/koba-kaya-orel-6.jpg')],
     imageAlt: 'Коба-Кая (Орел) — проект дома в Крыму',
   },
   {
@@ -230,7 +231,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 70 м² (8 на 8.75 м), и это идеальное пространство для семьи, которая ценит уют и функциональность. Две спальни (каждая по 10,15 м²) подарят спокойный сон и уединение. Сердце дома — кухня-гостиная площадью 20,66 м² — станет местом притяжения для всех домочадцев.',
       'Продуманная планировка включает коридор (5,78 м²), тамбур (10,15 м²), который бережно сохраняет тепло, и функциональную котельную-кладовую (5,84 м²) — всё для того, чтобы в доме царил идеальный порядок. Современный санузел площадью 5,86 м² дополняет картину комфорта.',
     ],
-    images: ['/images/objects/solnechnaya-tavrida-1.jpg', '/images/objects/solnechnaya-tavrida-2.png', '/images/objects/solnechnaya-tavrida-3.jpg', '/images/objects/solnechnaya-tavrida-4.jpg', '/images/objects/solnechnaya-tavrida-5.jpg', '/images/objects/solnechnaya-tavrida-6.jpg'],
+    images: [asset('/images/objects/solnechnaya-tavrida-1.jpg'), asset('/images/objects/solnechnaya-tavrida-2.png'), asset('/images/objects/solnechnaya-tavrida-3.jpg'), asset('/images/objects/solnechnaya-tavrida-4.jpg'), asset('/images/objects/solnechnaya-tavrida-5.jpg'), asset('/images/objects/solnechnaya-tavrida-6.jpg')],
     imageAlt: 'Солнечная Таврида — проект дома в Крыму',
   },
   {
@@ -259,7 +260,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 50,1 м² (8,350 м на 6 м), и это удивительно продуманное пространство, где нет ничего лишнего, но есть всё необходимое для комфортной жизни. Две полноценные спальни (каждая по 9,96 м²) подарят уют и тишину каждому члену семьи. Сердце дома — кухня-гостиная площадью 18,54 м² — станет местом для душевных застолий, шумных игр с детьми и тёплых разговоров с друзьями. Современный санузел площадью 5,10 м².',
       'Высота конька 3.75 м наполняет каждый уголок воздухом и светом, стирая границы между внутренним пространством и природой за окном. А название «Бахчисарайские сады» звучит как обещание: здесь будет зелено, уютно и по-настоящему живо.',
     ],
-    images: ['/images/objects/bakhchisarayskie-sady-1.jpg', '/images/objects/bakhchisarayskie-sady-2.png', '/images/objects/bakhchisarayskie-sady-3.jpg', '/images/objects/bakhchisarayskie-sady-4.jpg', '/images/objects/bakhchisarayskie-sady-5.jpg', '/images/objects/bakhchisarayskie-sady-6.jpg'],
+    images: [asset('/images/objects/bakhchisarayskie-sady-1.jpg'), asset('/images/objects/bakhchisarayskie-sady-2.png'), asset('/images/objects/bakhchisarayskie-sady-3.jpg'), asset('/images/objects/bakhchisarayskie-sady-4.jpg'), asset('/images/objects/bakhchisarayskie-sady-5.jpg'), asset('/images/objects/bakhchisarayskie-sady-6.jpg')],
     imageAlt: 'Бахчисарайские сады — проект дома в Крыму',
   },
   {
@@ -289,7 +290,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 100,1 м² (9.1 на 11 м), и это идеальное пространство для большой семьи. Три спальни обеспечат комфортный отдых каждому члену семьи, а кухня-гостиная станет главным местом притяжения — здесь будут собираться за общим столом, смеяться дети и звучать тёплые разговоры до позднего вечера. Продуманный тамбур и вместительный коридор сохраняют тепло и создают плавный переход от улицы к домашнему уюту. Всё необходимое дополняет современный санузел.',
       'Высота конька 3.75 м наполняет дом воздухом и светом, делая каждую комнату просторной и благородной. Это тот случай, когда дом становится настоящим холмом уюта посреди крымской природы.',
     ],
-    images: ['/images/objects/kiparisovyy-kholm-1.jpg', '/images/objects/kiparisovyy-kholm-2.png', '/images/objects/kiparisovyy-kholm-3.jpg', '/images/objects/kiparisovyy-kholm-4.jpg', '/images/objects/kiparisovyy-kholm-5.jpg', '/images/objects/kiparisovyy-kholm-6.jpg'],
+    images: [asset('/images/objects/kiparisovyy-kholm-1.jpg'), asset('/images/objects/kiparisovyy-kholm-2.png'), asset('/images/objects/kiparisovyy-kholm-3.jpg'), asset('/images/objects/kiparisovyy-kholm-4.jpg'), asset('/images/objects/kiparisovyy-kholm-5.jpg'), asset('/images/objects/kiparisovyy-kholm-6.jpg')],
     imageAlt: 'Кипарисовый холм — проект дома в Крыму',
   },
   {
@@ -319,7 +320,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь — 112 м² (7 на 8 м), и это настоящий простор для семейного счастья. Внутри вас ждут две уютные спальни, просторная кухня-гостиная — сердце дома для шумных ужинов и тихих вечеров, а также два санузла и два вместительных гардероба , которые оценят все члены семьи. Продуманная лестница ведёт к техническому помещению, сохраняя порядок и функциональность.',
       'Но настоящая изюминка — это открытая терраса площадью 20 м² (2,5 на 8 м). Здесь можно завтракать на свежем воздухе, встречать закаты и наслаждаться крымским бризом. А высота конька 3.75 м дарит невероятное ощущение воздуха и света, наполняя каждый уголок дома энергией.',
     ],
-    images: ['/images/objects/krym-modern-1.jpg', '/images/objects/krym-modern-2.png', '/images/objects/krym-modern-3.png', '/images/objects/krym-modern-4.jpg', '/images/objects/krym-modern-5.jpg', '/images/objects/krym-modern-6.jpg'],
+    images: [asset('/images/objects/krym-modern-1.jpg'), asset('/images/objects/krym-modern-2.png'), asset('/images/objects/krym-modern-3.png'), asset('/images/objects/krym-modern-4.jpg'), asset('/images/objects/krym-modern-5.jpg'), asset('/images/objects/krym-modern-6.jpg')],
     imageAlt: 'Крым модерн — проект дома в Крыму',
   },
   {
@@ -349,7 +350,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 64,4 м², и это продуманное одноэтажное пространство, где нет ничего случайного. Просторная кухня-гостиная площадью 22,3 м² объединяет зоны приготовления и отдыха — здесь будут проходить семейные ужины, звучать разговоры за чашкой чая и рождаться тёплые воспоминания. Две спальни (12,32 м² и 8,7 м²) подарят каждому члену семьи своё личное пространство: одна станет уютной родительской, вторая — детской или гостевой. Продуманный санузел (3,26 м²) дополняет функциональность, а вместительный коридор (10,15 м²) обеспечивает удобную навигацию и добавляет дому ощущение простора.',
       '«Золотой песок» — это не просто проект, это ваш личный уголок крымского тепла, где хочется возвращаться, отдыхать и строить планы на будущее.',
     ],
-    images: ['/images/objects/zolotoy-pesok-1.jpg', '/images/objects/zolotoy-pesok-2.png', '/images/objects/zolotoy-pesok-3.jpg', '/images/objects/zolotoy-pesok-4.jpg', '/images/objects/zolotoy-pesok-5.jpg', '/images/objects/zolotoy-pesok-6.jpg'],
+    images: [asset('/images/objects/zolotoy-pesok-1.jpg'), asset('/images/objects/zolotoy-pesok-2.png'), asset('/images/objects/zolotoy-pesok-3.jpg'), asset('/images/objects/zolotoy-pesok-4.jpg'), asset('/images/objects/zolotoy-pesok-5.jpg'), asset('/images/objects/zolotoy-pesok-6.jpg')],
     imageAlt: 'Золотой песок — проект дома в Крыму',
   },
   {
@@ -379,7 +380,7 @@ export const realProjects: RealProject[] = [
       'Отдельная гордость проекта — балкон площадью 6 м²: утренний кофе на свежем воздухе, вечерние посиделки под звёздами и те самые панорамные виды, ради которых гости выбирают этот номер снова и снова.',
       'Панорама — это продуманный бизнес-инструмент. Компактная площадь и двухуровневая планировка делают проект идеальным для гостиниц, апарт-отелей и гостевых домов. Гости ценят приватность, удобство и вид — именно это делает номер востребованным в любое время года.',
     ],
-    images: ['/images/objects/panorama-mini-gostinica-1.jpg', '/images/objects/panorama-mini-gostinica-2.png', '/images/objects/panorama-mini-gostinica-3.jpg', '/images/objects/panorama-mini-gostinica-4.jpg', '/images/objects/panorama-mini-gostinica-5.jpg', '/images/objects/panorama-mini-gostinica-6.jpg'],
+    images: [asset('/images/objects/panorama-mini-gostinica-1.jpg'), asset('/images/objects/panorama-mini-gostinica-2.png'), asset('/images/objects/panorama-mini-gostinica-3.jpg'), asset('/images/objects/panorama-mini-gostinica-4.jpg'), asset('/images/objects/panorama-mini-gostinica-5.jpg'), asset('/images/objects/panorama-mini-gostinica-6.jpg')],
     imageAlt: 'Панорама (мини-гостиница) — проект дома в Крыму',
   },
   {
@@ -408,7 +409,7 @@ export const realProjects: RealProject[] = [
       'Особый шарм проекту придаёт открытая терраса площадью 12,5 м² — пространство, где гости смогут наслаждаться свежим воздухом после парной, устраивать чаепития на природе и отдыхать в тени крымских деревьев. Это естественное продолжение банного ритуала, делающее отдых ещё более гармоничным.',
       'Крымская парная — это готовый бизнес-инструмент: компактная площадь, продуманная планировка и высокая востребованность у туристов и местных жителей. Баня — это всегда популярно, а в Крыму, с его туристическим потоком, такой формат принесёт стабильный доход круглый год.',
     ],
-    images: ['/images/objects/krymskaya-parnaya-1.jpg', '/images/objects/krymskaya-parnaya-2.png', '/images/objects/krymskaya-parnaya-3.jpg', '/images/objects/krymskaya-parnaya-4.jpg', '/images/objects/krymskaya-parnaya-5.jpg', '/images/objects/krymskaya-parnaya-6.jpg'],
+    images: [asset('/images/objects/krymskaya-parnaya-1.jpg'), asset('/images/objects/krymskaya-parnaya-2.png'), asset('/images/objects/krymskaya-parnaya-3.jpg'), asset('/images/objects/krymskaya-parnaya-4.jpg'), asset('/images/objects/krymskaya-parnaya-5.jpg'), asset('/images/objects/krymskaya-parnaya-6.jpg')],
     imageAlt: 'Крымская парная — проект дома в Крыму',
   },
   {
@@ -433,7 +434,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь помещения — 38,5 м², и это продуманное пространство, где каждая деталь настроена на продуктивность и удобство. Свободная планировка позволяет гибко организовать рабочие зоны : от индивидуальных мест до мини-переговорных. Здесь можно установить удобные столы, мягкие кресла, зоны для отдыха и кофе-поинт — всё, что нужно современному профессионалу для комфортной работы.',
       'Крым flow — это не просто помещение. Это точка притяжения для фрилансеров, стартапов, цифровых кочевников и творческих команд. Удачная локация и продуманное пространство гарантируют высокую посещаемость и стабильный доход.',
     ],
-    images: ['/images/objects/krym-flow-kovorking-1.jpg', '/images/objects/krym-flow-kovorking-2.png', '/images/objects/krym-flow-kovorking-3.jpg', '/images/objects/krym-flow-kovorking-4.jpg', '/images/objects/krym-flow-kovorking-5.jpg', '/images/objects/krym-flow-kovorking-6.jpg'],
+    images: [asset('/images/objects/krym-flow-kovorking-1.jpg'), asset('/images/objects/krym-flow-kovorking-2.png'), asset('/images/objects/krym-flow-kovorking-3.jpg'), asset('/images/objects/krym-flow-kovorking-4.jpg'), asset('/images/objects/krym-flow-kovorking-5.jpg'), asset('/images/objects/krym-flow-kovorking-6.jpg')],
     imageAlt: 'Крым flow (коворкинг) — проект дома в Крыму',
   },
   {
@@ -462,7 +463,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 38,5 м², и это продуманное пространство, разделённое на два уютных автономных номера . Каждый номер включает всё необходимое для комфортного проживания: прихожую (3,15 м²), санузел (2,80 м²) и жилую комнату (10,40 м²). Два независимых номера — это возможность размещать больше гостей, увеличивая ваш потенциальный доход.',
       '«Домик у моря» — это готовый бизнес-инструмент с высокой туристической привлекательностью. Минимальные затраты на строительство, быстрая окупаемость и постоянный спрос на жильё у моря делают этот проект выгодным вложением в ваше будущее.',
     ],
-    images: ['/images/objects/domik-u-morya-1.jpg', '/images/objects/domik-u-morya-2.png', '/images/objects/domik-u-morya-3.jpg', '/images/objects/domik-u-morya-4.jpg', '/images/objects/domik-u-morya-5.jpg', '/images/objects/domik-u-morya-6.jpg'],
+    images: [asset('/images/objects/domik-u-morya-1.jpg'), asset('/images/objects/domik-u-morya-2.png'), asset('/images/objects/domik-u-morya-3.jpg'), asset('/images/objects/domik-u-morya-4.jpg'), asset('/images/objects/domik-u-morya-5.jpg'), asset('/images/objects/domik-u-morya-6.jpg')],
     imageAlt: 'Домик у моря — проект дома в Крыму',
   },
   {
@@ -492,7 +493,7 @@ export const realProjects: RealProject[] = [
       'Особый шарм проекту придаёт просторная терраса площадью 30 м² — это дополнительное посадочное место, где гости смогут наслаждаться напитками на свежем воздухе, любуясь крымскими пейзажами. Терраса увеличивает вместимость вашего заведения и делает его особенно привлекательным в тёплый сезон.',
       '«Горный эспрессо» — это не просто здание. Это готовый бизнес-инструмент с продуманной логистикой, зонированием и комфортом для гостей и сотрудников.',
     ],
-    images: ['/images/objects/gornyy-yespresso-1.jpg', '/images/objects/gornyy-yespresso-2.png', '/images/objects/gornyy-yespresso-3.jpg', '/images/objects/gornyy-yespresso-4.jpg', '/images/objects/gornyy-yespresso-5.jpg', '/images/objects/gornyy-yespresso-6.jpg'],
+    images: [asset('/images/objects/gornyy-yespresso-1.jpg'), asset('/images/objects/gornyy-yespresso-2.png'), asset('/images/objects/gornyy-yespresso-3.jpg'), asset('/images/objects/gornyy-yespresso-4.jpg'), asset('/images/objects/gornyy-yespresso-5.jpg'), asset('/images/objects/gornyy-yespresso-6.jpg')],
     imageAlt: 'Горный эспрессо (кофейня) — проект дома в Крыму',
   },
   {
@@ -523,7 +524,7 @@ export const realProjects: RealProject[] = [
       'Настоящая изюминка проекта — просторная терраса площадью 25,75 м². Это место, где гости будут собираться за утренним кофе с видом на горы, устраивать вечерние посиделки под звёздным крымским небом и вдыхать тот самый горный воздух, за которым приезжают на полуостров. Терраса становится естественным продолжением дома, увеличивая полезное пространство и добавляя ему особый шарм.',
       '«Горный воздух» — это готовый бизнес-инструмент с высокой туристической привлекательностью. Три номера, общая терраса и живописная локация — всё это создаёт идеальные условия для успешного старта вашего гостевого дела.',
     ],
-    images: ['/images/objects/gornyy-vozdukh-1.jpg', '/images/objects/gornyy-vozdukh-2.png', '/images/objects/gornyy-vozdukh-3.jpg', '/images/objects/gornyy-vozdukh-4.jpg', '/images/objects/gornyy-vozdukh-5.jpg', '/images/objects/gornyy-vozdukh-6.jpg'],
+    images: [asset('/images/objects/gornyy-vozdukh-1.jpg'), asset('/images/objects/gornyy-vozdukh-2.png'), asset('/images/objects/gornyy-vozdukh-3.jpg'), asset('/images/objects/gornyy-vozdukh-4.jpg'), asset('/images/objects/gornyy-vozdukh-5.jpg'), asset('/images/objects/gornyy-vozdukh-6.jpg')],
     imageAlt: 'Горный воздух — проект дома в Крыму',
   },
   {
@@ -552,7 +553,7 @@ export const realProjects: RealProject[] = [
       'На втором уровне , расположенном над жилой комнатой и санузлом, находится ещё одна просторная жилая комната площадью 20,69 м². Это уютное пространство с особым характером — открытое, наполненное светом и воздухом, оно станет идеальным местом для отдыха и уединения.',
       'Для семьи Морской бриз — это уютный дом с продуманной планировкой, а для предпринимателя — готовый бизнес-инструмент с оптимальной площадью, чётким зонированием и высокой туристической привлекательностью. Гости оценят необычную планировку и удобство расположения, что гарантирует стабильную загрузку и быструю окупаемость, а вы сможете в любой момент вернуться к использованию дома для собственного отдыха.',
     ],
-    images: ['/images/objects/morskoy-briz-1.webp', '/images/objects/morskoy-briz-2.png', '/images/objects/morskoy-briz-3.jpg', '/images/objects/morskoy-briz-4.jpg', '/images/objects/morskoy-briz-5.jpg', '/images/objects/morskoy-briz-6.jpg'],
+    images: [asset('/images/objects/morskoy-briz-1.webp'), asset('/images/objects/morskoy-briz-2.png'), asset('/images/objects/morskoy-briz-3.jpg'), asset('/images/objects/morskoy-briz-4.jpg'), asset('/images/objects/morskoy-briz-5.jpg'), asset('/images/objects/morskoy-briz-6.jpg')],
     imageAlt: 'Морской бриз (барнхаус) — проект дома в Крыму',
   },
   {
@@ -580,7 +581,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 42,2 м², и это продуманное пространство, где чётко разделены ключевые бизнес-зоны. Просторная клиентская зона (19,39 м²) встречает посетителей уютной атмосферой — здесь удобно ожидать заказ, примерять вещи или просто забирать покупки в комфортной обстановке. Зона склада (16,07 м²) позволяет эффективно размещать товары, быстро находить нужные заказы и оптимизировать рабочие процессы. Завершает функциональную картину компактный санузел (1,20 м²), обеспечивающий комфорт для персонала.',
       'ПВЗ Юг — это готовый бизнес-инструмент: продуманная логистика, чёткое зонирование и удобство для клиентов и сотрудников. Рост популярности онлайн-покупок и постоянный спрос на пункты выдачи делают этот проект выгодным вложением с быстрой окупаемостью.',
     ],
-    images: ['/images/objects/pvz-yug-1.jpg', '/images/objects/pvz-yug-2.png', '/images/objects/pvz-yug-3.jpg', '/images/objects/pvz-yug-4.jpg', '/images/objects/pvz-yug-5.jpg', '/images/objects/pvz-yug-6.jpg'],
+    images: [asset('/images/objects/pvz-yug-1.jpg'), asset('/images/objects/pvz-yug-2.png'), asset('/images/objects/pvz-yug-3.jpg'), asset('/images/objects/pvz-yug-4.jpg'), asset('/images/objects/pvz-yug-5.jpg'), asset('/images/objects/pvz-yug-6.jpg')],
     imageAlt: 'ПВЗ Юг — проект дома в Крыму',
   },
   {
@@ -608,7 +609,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 30 м², и здесь каждая комната выполняет свою важную миссию. Уютная комната отдыха (14,19 м²) приглашает расслабиться после парной, насладиться травяным чаем и приятной беседой. Сама парная (5,75 м²) — сердце проекта, место, где рождается то самое лёгкое и целебное тепло, которое ценят ценители бани. Душевая (3,67 м²) и санузел (1,68 м²) обеспечивают полный комфорт.',
       'Дополняет гармонию проекта открытая терраса площадью 9,64 м². Здесь гости смогут выпить травяного чая, насладиться свежим ветром и почувствовать истинное единение с природой после парной. Это идеальное место для восстановления сил и спокойного отдыха в тени крымских деревьев.',
     ],
-    images: ['/images/objects/paro-garmoniya-1.jpg', '/images/objects/paro-garmoniya-2.png', '/images/objects/paro-garmoniya-3.jpg', '/images/objects/paro-garmoniya-4.jpg', '/images/objects/paro-garmoniya-5.jpg', '/images/objects/paro-garmoniya-6.jpg'],
+    images: [asset('/images/objects/paro-garmoniya-1.jpg'), asset('/images/objects/paro-garmoniya-2.png'), asset('/images/objects/paro-garmoniya-3.jpg'), asset('/images/objects/paro-garmoniya-4.jpg'), asset('/images/objects/paro-garmoniya-5.jpg'), asset('/images/objects/paro-garmoniya-6.jpg')],
     imageAlt: 'Паро-гармония — проект дома в Крыму',
   },
   {
@@ -638,7 +639,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 81 м². Сердце дома — просторная кухня-гостиная площадью 21,11 м², объединяющая зоны приготовления и отдыха. Главное пространство дома, где готовят, общаются и отдыхают всей семьёй. Три уютные спальни (11,37 м², 11,37 м² и 11,27 м²) обеспечат комфортный отдых для каждого члена семьи, даря личное пространство и покой. Вместительный коридор площадью 9,28 м² создаёт плавный переход между комнатами, а современный санузел площадью 5,17 м² дополняет безупречную функциональность.',
       '«Урбан Крым» — это идеальный баланс между городским стилем и домашним уютом. Лаконичные формы, чёткая планировка и продуманное зонирование делают этот дом настоящей находкой для современной семьи.',
     ],
-    images: ['/images/objects/urban-krym-1.jpg', '/images/objects/urban-krym-2.png', '/images/objects/urban-krym-3.jpg', '/images/objects/urban-krym-4.jpg', '/images/objects/urban-krym-5.jpg', '/images/objects/urban-krym-6.jpg'],
+    images: [asset('/images/objects/urban-krym-1.jpg'), asset('/images/objects/urban-krym-2.png'), asset('/images/objects/urban-krym-3.jpg'), asset('/images/objects/urban-krym-4.jpg'), asset('/images/objects/urban-krym-5.jpg'), asset('/images/objects/urban-krym-6.jpg')],
     imageAlt: 'Урбан Крым — проект дома в Крыму',
   },
   {
@@ -669,7 +670,7 @@ export const realProjects: RealProject[] = [
       'Особенность проекта — две террасы общей площадью 18,5 м², каждая из которых открывается из кухни-гостиной. Это два разных настроения: один выход — для утреннего кофе в тишине, другой — для вечерних посиделок с близкими. Два выхода, два пространства, два способа наслаждаться крымским воздухом.',
       'На втором этаже — три спальни (13 м², 14 м² и 8,7 м²), каждая со своим характером и уютом. Здесь можно устроить детские комнаты, гостевую или кабинет — пространство позволяет воплотить любые идеи. Дополняет картину ещё один санузел (3,9 м²) и вместительный коридор (9,5 м²), обеспечивающий удобную навигацию по этажу.',
     ],
-    images: ['/images/objects/tikhaya-gavan-1.jpg', '/images/objects/tikhaya-gavan-2.png', '/images/objects/tikhaya-gavan-3.png', '/images/objects/tikhaya-gavan-4.jpg', '/images/objects/tikhaya-gavan-5.jpg', '/images/objects/tikhaya-gavan-6.jpg'],
+    images: [asset('/images/objects/tikhaya-gavan-1.jpg'), asset('/images/objects/tikhaya-gavan-2.png'), asset('/images/objects/tikhaya-gavan-3.png'), asset('/images/objects/tikhaya-gavan-4.jpg'), asset('/images/objects/tikhaya-gavan-5.jpg'), asset('/images/objects/tikhaya-gavan-6.jpg')],
     imageAlt: 'Тихая гавань (барнхаус) — проект дома в Крыму',
   },
   {
@@ -700,7 +701,7 @@ export const realProjects: RealProject[] = [
       'Особая гордость — терраса общей площадью 26,35 м², которая огибает дом с двух сторон. Это не просто открытая зона, а полноценное пространство для жизни на свежем воздухе. Благодаря такому расположению, здесь всегда можно найти место и для утреннего кофе в лучах солнца, и для тенистого послеобеденного отдыха.',
       'Крымский Арбат — это не просто проект, а ваше личное пространство, где каждый квадратный метр продуман для жизни в гармонии с собой и окружающим миром.',
     ],
-    images: ['/images/objects/krymskiy-arbat-1.jpg', '/images/objects/krymskiy-arbat-2.png', '/images/objects/krymskiy-arbat-3.jpg', '/images/objects/krymskiy-arbat-4.jpg', '/images/objects/krymskiy-arbat-5.jpg', '/images/objects/krymskiy-arbat-6.jpg'],
+    images: [asset('/images/objects/krymskiy-arbat-1.jpg'), asset('/images/objects/krymskiy-arbat-2.png'), asset('/images/objects/krymskiy-arbat-3.jpg'), asset('/images/objects/krymskiy-arbat-4.jpg'), asset('/images/objects/krymskiy-arbat-5.jpg'), asset('/images/objects/krymskiy-arbat-6.jpg')],
     imageAlt: 'Крымский Арбат — проект дома в Крыму',
   },
   {
@@ -731,7 +732,7 @@ export const realProjects: RealProject[] = [
       'На втором этаже — две просторные спальни , каждая площадью 15,40 м², а также ещё один санузел (5,17 м²) и вместительный коридор (8,10 м²). Из спален есть выход на большой балкон площадью 32,368 м² — настоящее открытое пространство, где можно встречать рассветы, устраивать уютные вечера и любоваться бескрайними крымскими пейзажами.',
       'Дом дополняет открытая терраса площадью 15,4 м² — уютное пространство для отдыха на свежем воздухе, где можно наслаждаться тишиной и видами.',
     ],
-    images: ['/images/objects/krymskie-terrasy-1.jpg', '/images/objects/krymskie-terrasy-2.png', '/images/objects/krymskie-terrasy-3.png', '/images/objects/krymskie-terrasy-4.jpg', '/images/objects/krymskie-terrasy-5.jpg', '/images/objects/krymskie-terrasy-6.jpg'],
+    images: [asset('/images/objects/krymskie-terrasy-1.jpg'), asset('/images/objects/krymskie-terrasy-2.png'), asset('/images/objects/krymskie-terrasy-3.png'), asset('/images/objects/krymskie-terrasy-4.jpg'), asset('/images/objects/krymskie-terrasy-5.jpg'), asset('/images/objects/krymskie-terrasy-6.jpg')],
     imageAlt: 'Крымские террасы — проект дома в Крыму',
   },
   {
@@ -762,7 +763,7 @@ export const realProjects: RealProject[] = [
       'Второй этаж — личное пространство для каждого члена семьи. Три спальни (21,1 м², 10,9 м² и 10,5 м²) дарят уют и покой. Две из них имеют выход на общий балкон площадью 10,5 м² — место, где можно вдыхать утренний бриз и любоваться крымскими пейзажами. Дополняет картину ещё один санузел (4,3 м²) и вместительный коридор (8,8 м²).',
       '«Восточный залив» — это дом, где каждый найдёт свой уголок для отдыха и вдохновения, где семейные традиции обретают новую жизнь, а каждый день наполнен светом и теплом.',
     ],
-    images: ['/images/objects/vostochnyy-zaliv-1.jpg', '/images/objects/vostochnyy-zaliv-2.png', '/images/objects/vostochnyy-zaliv-3.png', '/images/objects/vostochnyy-zaliv-4.jpg', '/images/objects/vostochnyy-zaliv-5.jpg', '/images/objects/vostochnyy-zaliv-6.jpg'],
+    images: [asset('/images/objects/vostochnyy-zaliv-1.jpg'), asset('/images/objects/vostochnyy-zaliv-2.png'), asset('/images/objects/vostochnyy-zaliv-3.png'), asset('/images/objects/vostochnyy-zaliv-4.jpg'), asset('/images/objects/vostochnyy-zaliv-5.jpg'), asset('/images/objects/vostochnyy-zaliv-6.jpg')],
     imageAlt: 'Восточный залив — проект дома в Крыму',
   },
   {
@@ -792,7 +793,7 @@ export const realProjects: RealProject[] = [
       'Общая площадь дома — 84 м². Двухэтажная конструкция с одинаковой планировкой этажей предлагает уникальную гибкость: вы можете жить всей семьёй в одном доме, занимая оба этажа, или сдавать один из них как самостоятельную квартиру. На каждом уровне — кухня-гостиная (14,4 м²), две уютные спальни (7,3 м² и 6,1 м²), вместительный коридор (5,3 м²) и компактный санузел (3 м²). Всё необходимое для комфортного проживания — и для семьи, и для гостей. А наличие террасы на каждом этаже (по 14 м² каждая) добавляет дому особого шарма: здесь можно наслаждаться крымскими закатами, устраивать уютные вечера или просто отдыхать в тишине.',
       'Преимущество проекта дома Аю-Даг в его двойном назначении: для семьи — это современный дом с продуманным пространством, а для бизнеса — готовый инвестиционный актив с возможностью сдачи в аренду как единого объекта или по отдельным этажам. Минимальные затраты на обслуживание, высокая туристическая привлекательность и удобное расположение делают проект выгодным вложением в крымскую недвижимость.',
     ],
-    images: ['/images/objects/ayu-dag-1.jpg', '/images/objects/ayu-dag-2.png', '/images/objects/ayu-dag-3.jpg', '/images/objects/ayu-dag-4.jpg', '/images/objects/ayu-dag-5.jpg', '/images/objects/ayu-dag-6.jpg'],
+    images: [asset('/images/objects/ayu-dag-1.jpg'), asset('/images/objects/ayu-dag-2.png'), asset('/images/objects/ayu-dag-3.jpg'), asset('/images/objects/ayu-dag-4.jpg'), asset('/images/objects/ayu-dag-5.jpg'), asset('/images/objects/ayu-dag-6.jpg')],
     imageAlt: 'Аю-Даг — проект дома в Крыму',
   },
   {
@@ -820,7 +821,7 @@ export const realProjects: RealProject[] = [
       'Встречать рассвет над морем, не выходя из собственной спальни, — теперь это не мечта, а продуманная архитектурная реальность. Проект «Алуштинские восходы» относится к категории «Бизнес+» и создан для тех, кто ценит приватность, стиль и безупречную эргономику.',
       'Общая площадь дома — 61 м² (6 на 10.15 м), и каждый сантиметр здесь работает на ваш комфорт. Уникальная структура здания предполагает два полноценных номера . В каждом из них есть всё для комфортной жизни: отдельная спальня (8,10 м²), просторная кухня-гостина я (10,40 м²), удобный санузел (4,80 м²) и продуманная входная зона (2,70 м²). Это идеальное решение для двух семей, для сдачи в аренду или для приема гостей, когда каждый чувствует себя хозяином личного пространства.',
     ],
-    images: ['/images/objects/alushtinskie-voshody-1.jpg', '/images/objects/alushtinskie-voshody-2.png', '/images/objects/alushtinskie-voshody-3.jpg', '/images/objects/alushtinskie-voshody-4.jpg', '/images/objects/alushtinskie-voshody-5.jpg', '/images/objects/alushtinskie-voshody-6.jpg'],
+    images: [asset('/images/objects/alushtinskie-voshody-1.jpg'), asset('/images/objects/alushtinskie-voshody-2.png'), asset('/images/objects/alushtinskie-voshody-3.jpg'), asset('/images/objects/alushtinskie-voshody-4.jpg'), asset('/images/objects/alushtinskie-voshody-5.jpg'), asset('/images/objects/alushtinskie-voshody-6.jpg')],
     imageAlt: 'Алуштинские восходы — проект дома в Крыму',
   },
 ];

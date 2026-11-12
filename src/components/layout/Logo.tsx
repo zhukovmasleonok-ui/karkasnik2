@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 /**
  * Оригинальный логотип «Строят Крымчане» (PNG со старого сайта).
@@ -18,7 +19,7 @@ export function Logo({
 }) {
   return (
     <Image
-      src={variant === 'light' ? '/images/logo-white.png' : '/images/logo-ink.png'}
+      src={variant === 'light' ? asset('/images/logo-white.png') : asset('/images/logo-ink.png')}
       alt='Логотип строительной компании «Строят Крымчане» — дуб в геральдическом щите'
       width={0}
       height={0}

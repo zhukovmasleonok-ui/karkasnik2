@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 /* ================= Детальная страница проекта: переключение =================
    Фасады / Планировка / Комплектация — честные вкладки по реальным данным.
@@ -77,7 +78,7 @@ export function ProjectTabs({
         <div role="tabpanel" aria-label="Фасады проекта" className="mt-6">
           <div className="skeleton relative aspect-[16/10] overflow-hidden rounded-sm">
             <Image
-              src={facadeImages[active] || facadeImages[0] || '/images/project-sip.jpg'}
+              src={facadeImages[active] || facadeImages[0] || asset('/images/project-sip.jpg')}
               alt={`${imageAlt} — вид ${active + 1}`}
               fill
               priority

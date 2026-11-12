@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 import { ArrowUpRight, RotateCcw, SearchX } from 'lucide-react';
 import { realProjects, type RealProject } from '@/content/projects';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 /* ================= Villagio: глубокая фильтрация каталога =================
    Фильтры — часть дизайна: горизонтальная панель с тонкими линиями,
@@ -234,7 +235,7 @@ export function CatalogClient() {
                 {/* Skeleton-шиммер под фото: пока грузится — спокойная текстура */}
                 <div className="skeleton relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
-                    src={p.images[0] || '/images/project-sip.jpg'}
+                    src={p.images[0] || asset('/images/project-sip.jpg')}
                     alt={p.imageAlt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

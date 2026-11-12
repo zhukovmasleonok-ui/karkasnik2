@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Reveal } from '@/components/layout/Reveal';
 import { SectionHeading } from '@/components/layout/SectionHeading';
+import { asset } from '@/lib/paths';
 import { realProjects } from '@/content/projects';
 import {
   manifesto,
@@ -54,7 +55,7 @@ export function Manifesto() {
           <figure>
             <div className="relative aspect-[16/9] overflow-hidden rounded-sm sm:aspect-[21/9]">
               <Image
-                src="/images/family2.jpg"
+                src={asset('/images/family2.jpg')}
                 alt="Семья дома — семейный подход как внутренняя ценность компании"
                 fill
                 sizes="100vw"
@@ -343,7 +344,7 @@ export function ModelsStrip() {
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                 <Image
-                  src={p.images[0] || '/images/project-sip.jpg'}
+                  src={p.images[0] || asset('/images/project-sip.jpg')}
                   alt={p.imageAlt}
                   fill
                   sizes="(max-width: 640px) 75vw, 330px"
@@ -482,7 +483,7 @@ export function Trust() {
         <Reveal delay={120}>
           <figure>
             <Image
-              src="/images/certificates.jpg"
+              src={asset('/images/certificates.jpg')}
               alt="Сертификаты соответствия системы добровольной сертификации компании"
               width={1280}
               height={372}

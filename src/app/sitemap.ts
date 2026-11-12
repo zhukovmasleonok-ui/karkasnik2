@@ -3,6 +3,9 @@ import { realProjects } from '@/content/projects';
 
 const BASE = 'https://xn--80aknigcncfkc7d8byc.xn--p1ai';
 
+// Для статического экспорта сгенерировать sitemap.xml один раз при сборке
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: '', priority: 1, freq: 'weekly' as const },

@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { LeadDialogProvider } from '@/components/forms/LeadDialog';
 import { Toaster } from '@/components/ui/toaster';
 import { pagesMeta, company } from '@/content/site';
+import { asset } from '@/lib/paths';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://xn--80aknigcncfkc7d8byc.xn--p1ai'),
@@ -28,13 +29,13 @@ export const metadata: Metadata = {
     siteName: company.name,
     title: pagesMeta.home.title,
     description: pagesMeta.home.description,
-    images: [{ url: '/images/hero-aframe.jpg', width: 1440, height: 720, alt: company.tagline }],
+    images: [{ url: asset('/images/hero-aframe.jpg'), width: 1440, height: 720, alt: company.tagline }],
   },
   twitter: {
     card: 'summary_large_image',
     title: company.name,
     description: pagesMeta.home.description,
-    images: ['/images/hero-aframe.jpg'],
+    images: [asset('/images/hero-aframe.jpg')],
   },
   robots: { index: true, follow: true },
 };

@@ -8,6 +8,7 @@
  * их НЕТ в материалах, заменить реальными данными заказчика.
  * Полный список замены — в PROJECT_TODO.md и в конце этого файла.
  */
+import { asset } from '@/lib/paths';
 
 export const DEMO = false; // реальные данные перенесены со старого сайта строяткрымчане.рф
 
@@ -108,7 +109,7 @@ export const technologies: Technology[] = [
     priceFrom: 'от 1 500 000 ₽',
     priceNote: 'за дом 30 м²',
     term: 'Срок возведения — до 20 дней',
-    image: '/images/project-frame2.jpg',
+    image: asset('/images/project-frame2.jpg'),
     imageAlt: 'СИП-панельный дом, построенный компанией в Крыму',
     isDemoImage: undefined as boolean | undefined,
     description: [
@@ -141,7 +142,7 @@ export const technologies: Technology[] = [
     priceFrom: 'от 1 500 000 ₽',
     priceNote: 'за дом 30 м² · «Префаб» за 2 млн ₽ — акция',
     term: 'Срок изготовления — до 30 дней',
-    image: '/images/work-frame-clean.jpg',
+    image: asset('/images/work-frame-clean.jpg'),
     imageAlt: 'Деревянный каркас дома из сухого строганого пиломатериала',
     isDemoImage: undefined as boolean | undefined,
     description: [
@@ -171,7 +172,7 @@ export const technologies: Technology[] = [
     priceFrom: 'от 650 000 ₽',
     priceNote: 'за дом 15 м² · + фундамент и доставка',
     term: 'Срок изготовления — до 20 дней',
-    image: '/images/work-slope-clean.jpg',
+    image: asset('/images/work-slope-clean.jpg'),
     imageAlt: 'Модульный дом на участке с перепадом высот',
     isDemoImage: undefined as boolean | undefined,
     description: [
@@ -342,25 +343,25 @@ export const advantages = [
   {
     title: 'Работаем только своими бригадами',
     text: 'По всей территории Крыма — от Севастополя до Керчи. Никаких случайных подрядчиков.',
-    image: '/images/karta-geografiya.png',
+    image: asset('/images/karta-geografiya.png'),
     alt: 'Карта Крыма — работаем своими бригадами по всему полуострову',
   },
   {
     title: 'Камерная сушка пиломатериала',
     text: 'Используем пиломатериал только сухой, строганый, антисептированный камерной сушки.',
-    image: '/images/work-frame-clean.jpg',
+    image: asset('/images/work-frame-clean.jpg'),
     alt: 'Каркас дома из сухого строганого антисептированного пиломатериала',
   },
   {
     title: 'Любые участки, включая перепады',
     text: 'Выполняем строительство домов на любых участках, в том числе с большим перепадом высот.',
-    image: '/images/work-slope-clean.jpg',
+    image: asset('/images/work-slope-clean.jpg'),
     alt: 'Дом на сваях на участке с большим перепадом высот',
   },
   {
     title: 'Договор, гарантия, сопровождение',
     text: 'Заключаем договор, даём гарантию и сопровождаем дом в эксплуатации.',
-    image: '/images/work-contract-clean.jpg',
+    image: asset('/images/work-contract-clean.jpg'),
     alt: 'Подписание договора с гарантией',
   },
 ];
@@ -396,7 +397,7 @@ export const founder = {
   name: 'Вячеслав Амерьян',
   role: 'Основатель и руководитель компании',
   quote: 'Кто строит дом — тот строит счастье',
-  image: '/images/founder.jpg',
+  image: asset('/images/founder.jpg'),
   imageAlt: 'Вячеслав Амерьян — основатель компании «Строят Крымчане»',
   paragraphs: [
     'Приветствуем Вас, дорогие друзья! Меня зовут Вячеслав.',
@@ -469,49 +470,49 @@ export const workSteps = [
 
 export const productionSlides = [
   {
-    image: '/images/work-aframe.jpg',
+    image: asset('/images/work-aframe.jpg'),
     alt: 'А-образный каркасный дом с двумя балконами',
     caption: 'А-образный дом',
     tag: 'Каркас',
     overlayText: 'Специализируемся на СИП-панельных, каркасных и модульных домах',
   },
   {
-    image: '/images/work-brick.jpg',
+    image: asset('/images/work-brick.jpg'),
     alt: 'Современный кирпичный дом с деревянным балконом',
     caption: 'Современный дом',
     tag: 'Проект',
     overlayText: 'Реализуем как типовые, так и уникальные проекты',
   },
   {
-    image: '/images/work-slope.jpg',
+    image: asset('/images/work-slope.jpg'),
     alt: 'Дом на металлических опорах на участке с большим перепадом высот',
     caption: 'Дом на склоне',
     tag: 'Сложный рельеф',
     overlayText: 'Строим на любых участках, в том числе с большим перепадом',
   },
   {
-    image: '/images/work-prefab.jpg',
+    image: asset('/images/work-prefab.jpg'),
     alt: 'Монтаж модульного дома краном по технологии Префаб',
     caption: 'Монтаж «Префаб»',
     tag: 'Технология',
     overlayText: 'Собираем каркасные дома по инновационной технологии «Префаб»',
   },
   {
-    image: '/images/work-frame.jpg',
+    image: asset('/images/work-frame.jpg'),
     alt: 'Деревянный каркас дома из камерной сушки',
     caption: 'Каркас камерной сушки',
     tag: 'Материалы',
     overlayText: 'Пиломатериал только сухой, строганый, антисептированный',
   },
   {
-    image: '/images/work-platform.jpg',
+    image: asset('/images/work-platform.jpg'),
     alt: 'Платформа пола дома из сертифицированных материалов',
     caption: 'Платформа пола',
     tag: 'Контроль',
     overlayText: 'Производим и используем сертифицированные материалы высокого качества',
   },
   {
-    image: '/images/work-turnkey.jpg',
+    image: asset('/images/work-turnkey.jpg'),
     alt: 'Современная кухня в доме, построенном под ключ',
     caption: 'Отделка «под ключ»',
     tag: 'Интерьер',
@@ -621,7 +622,7 @@ export const demoRates = {
 
 export const todoList = [
   'Ставки ипотеки в калькуляторе — демо-значения, уточнить актуальные программы банков',
-  'Подключить реальную интеграцию форм (CRM/Telegram/почта) в src/app/api/leads/route.ts',
+  'Подключить реальную интеграцию форм (CRM/Telegram/почта) — места TODO-INTEGRATION в LeadForm.tsx и HomeQuiz.tsx',
   'Полные тексты отзывов добавить по ссылкам с площадок-источников (сейчас — выдержки с Авито)',
   'Адрес офиса/шоурума и карта — подключить Яндекс.Карты на «Контактах»',
   'Прикрепить документы: типовой договор, сертификаты по отдельности',

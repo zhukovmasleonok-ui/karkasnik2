@@ -3,6 +3,7 @@
  * со старого сайта строяткрымчане.рф /portfolio/. Отзывы — дословно,
  * источники: Авито и другие площадки (см. source).
  */
+import { asset } from '@/lib/paths';
 
 export type RealObject = {
   title: string;
@@ -18,7 +19,7 @@ export const realObjects: RealObject[] = [
     title: 'Двухэтажный сип-панельный дом "под ключ" с перголой (г. Ялта)',
     location: 'г. Ялта',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-1-1.jpg',
+    image: asset('/images/portfolio/obj-1-1.jpg'),
     image2: null,
     review: null,
   },
@@ -26,7 +27,7 @@ export const realObjects: RealObject[] = [
     title: 'Двухэтажный сип-панельный дом в "предчистовой" отделке с террасой (г. Ялта)',
     location: 'г. Ялта',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-2-1.jpg',
+    image: asset('/images/portfolio/obj-2-1.jpg'),
     image2: null,
     review: null,
   },
@@ -34,8 +35,8 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельный дом с террасой "под ключ" (с. Орловка)',
     location: 'с. Орловка',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-3-1.jpg',
-    image2: '/images/portfolio/obj-3-2.png',
+    image: asset('/images/portfolio/obj-3-1.jpg'),
+    image2: asset('/images/portfolio/obj-3-2.png'),
     review: {
       author: 'Ирина',
       text: 'Хочу поделиться только положительными эмоциями и благодарностью Вячеславу и его команде( в частности Дмитрию действительно золотые руки) Все договорённости были выполнены качественно и в срок. Мы прошли достаточно долгий путь включая покупку участка и все остальные моменты, на пути к осуществлению нашей мечты. Вячеслав всегда был на связи, был заинтересован , что бы сделать все так как мы хотели. Такое отношение и профессионализм редко встретишь и всем кто решиться построить дом, однозначно рекомендую не пожалеете.',
@@ -46,7 +47,7 @@ export const realObjects: RealObject[] = [
     title: 'Каркасный дом в стиле А-фрейм "под ключ" по технологии "Префаб" с балконом и террасой (пгт. Черноморское, с. Громово)',
     location: 'пгт. Черноморское, с. Громово',
     tags: ['Каркас', '«Префаб»'],
-    image: '/images/portfolio/obj-4-1.jpg',
+    image: asset('/images/portfolio/obj-4-1.jpg'),
     image2: null,
     review: {
       author: 'Ольга С.',
@@ -58,7 +59,7 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельный дом в «черновой» отделке с фасадом (г. Керчь)',
     location: 'г. Керчь',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-5-1.jpg',
+    image: asset('/images/portfolio/obj-5-1.jpg'),
     image2: null,
     review: {
       author: 'Оксана',
@@ -70,8 +71,8 @@ export const realObjects: RealObject[] = [
     title: 'Модульный дом "под ключ" по технологии "Префаб" с террасой (пгт. Черноморское)',
     location: 'пгт. Черноморское',
     tags: ['Модуль', '«Префаб»'],
-    image: '/images/portfolio/obj-6-1.jpg',
-    image2: '/images/portfolio/obj-6-2.png',
+    image: asset('/images/portfolio/obj-6-1.jpg'),
+    image2: asset('/images/portfolio/obj-6-2.png'),
     review: {
       author: 'Алексей А.',
       text: 'Вы ищите себе дом мечты? Тогда вам сюда , нет я не рекламщик ,я обычный покупатель как и вы читающий это . Сразу скажу был примерный план , что я хочу и много много вопросов ( даже самых дурацких) , но их воплотить смогли они только. От момента встречи и подписания договора, до сдачи дома в реальность, прошло ровно 2 месяца 4 дня . Дом готов , стоит у меня , и он получился гораздо лучше чем я ожидал изначально. Дерзайте , общайтесь с ними , и вы получите свою мечту в реальной жизни. А не на бумаге или в разговорах. Ребята знают свое дело Андрей, профессионал своего дела в стройке и подборке материала) , Вячеслав — мастер реализовать вашу мечту от слов и бумаги до реальной установки. Всегда на связи и ответят на любые вопросы , и даже покажут место , где все это происходит. Нет скрытых платежей. Нет подоплеки не договорили ( есть только если вы не спросили ). А так в целом скажу одно — ребятам желаю хороших и добросовестный покупателей , таких же как и вы .',
@@ -82,7 +83,7 @@ export const realObjects: RealObject[] = [
     title: 'Двухэтажный сип-панельный дом с террасами и балконом в "предчистовой" отделке (г. Ялта)',
     location: 'г. Ялта',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-7-1.jpg',
+    image: asset('/images/portfolio/obj-7-1.jpg'),
     image2: null,
     review: {
       author: 'Елена Кузнецова',
@@ -94,7 +95,7 @@ export const realObjects: RealObject[] = [
     title: 'Двухэтажный сип-панельный дом "под ключ" (с. Каменское)',
     location: 'с. Каменское',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-8-1.jpg',
+    image: asset('/images/portfolio/obj-8-1.jpg'),
     image2: null,
     review: null,
   },
@@ -102,7 +103,7 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельный дом в "предчистовой" отделке (п. Любимовка)',
     location: 'п. Любимовка',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-9-1.jpg',
+    image: asset('/images/portfolio/obj-9-1.jpg'),
     image2: null,
     review: {
       author: 'Оксана',
@@ -114,8 +115,8 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельная пристройка (мастерская) в "предчистовой" отделке (г. Севастополь)',
     location: 'г. Севастополь',
     tags: ['СИП', 'Надстройка/пристройка'],
-    image: '/images/portfolio/obj-10-1.jpg',
-    image2: '/images/portfolio/obj-10-2.jpg',
+    image: asset('/images/portfolio/obj-10-1.jpg'),
+    image2: asset('/images/portfolio/obj-10-2.jpg'),
     review: {
       author: 'Nata_Zh',
       text: 'Хочу выразить ОГРОМНУЮ БЛАГОДАРНОСТЬ Вячеславу и его ребятам строителям за поистине качественно проделанную работу по нашему запросу! Всё официально ,по договору ,в срок ,что очень важно! Мастерская получилась выше всех похвал!!! Очень рады были с Вами познакомиться , спасибо, что Вы есть ,ведь так редко можно встретить на просторах интернета порядочных людей ! Однозначно порекомендую Вас своим друзьям и знакомым! Процветания Вам , новых благодарных клиентов и всех благ Вам и Вашей семье!',
@@ -126,7 +127,7 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельная надстройка (2й этаж) в "черновой" отделке (г. Керчь)',
     location: 'г. Керчь',
     tags: ['СИП', 'Надстройка/пристройка'],
-    image: '/images/portfolio/obj-11-1.jpg',
+    image: asset('/images/portfolio/obj-11-1.jpg'),
     image2: null,
     review: null,
   },
@@ -134,7 +135,7 @@ export const realObjects: RealObject[] = [
     title: 'Сип-панельный дом в "черновой" отделке (г. Керчь)',
     location: 'г. Керчь',
     tags: ['СИП'],
-    image: '/images/portfolio/obj-12-1.jpg',
+    image: asset('/images/portfolio/obj-12-1.jpg'),
     image2: null,
     review: {
       author: 'Александр Яндович',
@@ -146,7 +147,7 @@ export const realObjects: RealObject[] = [
     title: 'Каркасная надстройка (2й этаж) по технологии "Префаб" в "черновой" отделке (г. Севастополь)',
     location: 'г. Севастополь',
     tags: ['Каркас', '«Префаб»', 'Надстройка/пристройка'],
-    image: '/images/portfolio/obj-13-1.jpg',
+    image: asset('/images/portfolio/obj-13-1.jpg'),
     image2: null,
     review: {
       author: 'Владимир',

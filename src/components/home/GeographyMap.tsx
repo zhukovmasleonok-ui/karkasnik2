@@ -7,6 +7,7 @@ import { ArrowRight, MapPin } from 'lucide-react';
 import { SectionHeading } from '@/components/layout/SectionHeading';
 import { Reveal } from '@/components/layout/Reveal';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/paths';
 
 /**
  * ГЕОГРАФИЯ ОБЪЕКТОВ — 3D-рельеф Крыма с фотографическими метками
@@ -39,23 +40,23 @@ type MapObject = {
 
 export const mapObjects: MapObject[] = [
   // Ялта — три объекта, разлёт внутри кластера, чтобы круглые метки не слипались
-  { anchor: 'obj-1', image: '/images/portfolio/obj-1-1.jpg', title: 'СИП-дом «под ключ» с перголой', location: 'г. Ялта', x: 41.5, y: 80 },
-  { anchor: 'obj-2', image: '/images/portfolio/obj-2-1.jpg', title: 'СИП-дом с террасой', location: 'г. Ялта', x: 45.5, y: 83 },
-  { anchor: 'obj-7', image: '/images/portfolio/obj-7-1.jpg', title: 'СИП-дом с террасами и балконом', location: 'г. Ялта', x: 37.5, y: 82.5 },
+  { anchor: 'obj-1', image: asset('/images/portfolio/obj-1-1.jpg'), title: 'СИП-дом «под ключ» с перголой', location: 'г. Ялта', x: 41.5, y: 80 },
+  { anchor: 'obj-2', image: asset('/images/portfolio/obj-2-1.jpg'), title: 'СИП-дом с террасой', location: 'г. Ялта', x: 45.5, y: 83 },
+  { anchor: 'obj-7', image: asset('/images/portfolio/obj-7-1.jpg'), title: 'СИП-дом с террасами и балконом', location: 'г. Ялта', x: 37.5, y: 82.5 },
   // Западное побережье и Тарханкут — координаты калибровались по рельефу
-  { anchor: 'obj-3', image: '/images/portfolio/obj-3-1.jpg', title: 'СИП-дом с террасой', location: 'с. Орловка', x: 23.5, y: 61.5 },
-  { anchor: 'obj-4', image: '/images/portfolio/obj-4-1.jpg', title: 'А-фрейм по технологии «Префаб»', location: 'пгт. Черноморское, с. Громово', x: 13, y: 44.5 },
-  { anchor: 'obj-6', image: '/images/portfolio/obj-6-1.jpg', title: 'Модульный дом «Префаб» с террасой', location: 'пгт. Черноморское', x: 7.5, y: 41 },
+  { anchor: 'obj-3', image: asset('/images/portfolio/obj-3-1.jpg'), title: 'СИП-дом с террасой', location: 'с. Орловка', x: 23.5, y: 61.5 },
+  { anchor: 'obj-4', image: asset('/images/portfolio/obj-4-1.jpg'), title: 'А-фрейм по технологии «Префаб»', location: 'пгт. Черноморское, с. Громово', x: 13, y: 44.5 },
+  { anchor: 'obj-6', image: asset('/images/portfolio/obj-6-1.jpg'), title: 'Модульный дом «Префаб» с террасой', location: 'пгт. Черноморское', x: 7.5, y: 41 },
   // Севастополь и окрестности
-  { anchor: 'obj-9', image: '/images/portfolio/obj-9-1.jpg', title: 'СИП-дом в предчистовой отделке', location: 'п. Любимовка', x: 26, y: 65 },
-  { anchor: 'obj-10', image: '/images/portfolio/obj-10-1.jpg', title: 'Пристройка-мастерская', location: 'г. Севастополь', x: 28.5, y: 68 },
-  { anchor: 'obj-13', image: '/images/portfolio/obj-13-1.jpg', title: 'Каркасная надстройка «Префаб»', location: 'г. Севастополь', x: 31, y: 72.5 },
+  { anchor: 'obj-9', image: asset('/images/portfolio/obj-9-1.jpg'), title: 'СИП-дом в предчистовой отделке', location: 'п. Любимовка', x: 26, y: 65 },
+  { anchor: 'obj-10', image: asset('/images/portfolio/obj-10-1.jpg'), title: 'Пристройка-мастерская', location: 'г. Севастополь', x: 28.5, y: 68 },
+  { anchor: 'obj-13', image: asset('/images/portfolio/obj-13-1.jpg'), title: 'Каркасная надстройка «Префаб»', location: 'г. Севастополь', x: 31, y: 72.5 },
   // Бахчисарайский район — предгорья
-  { anchor: 'obj-8', image: '/images/portfolio/obj-8-1.jpg', title: 'СИП-дом «под ключ»', location: 'с. Каменское', x: 30.5, y: 52.5 },
+  { anchor: 'obj-8', image: asset('/images/portfolio/obj-8-1.jpg'), title: 'СИП-дом «под ключ»', location: 'с. Каменское', x: 30.5, y: 52.5 },
   // Керчь — три объекта на востоке полуострова
-  { anchor: 'obj-5', image: '/images/portfolio/obj-5-1.jpg', title: 'СИП-дом с фасадом', location: 'г. Керчь', x: 94.5, y: 51 },
-  { anchor: 'obj-11', image: '/images/portfolio/obj-11-1.jpg', title: 'СИП-надстройка (2-й этаж)', location: 'г. Керчь', x: 92, y: 56 },
-  { anchor: 'obj-12', image: '/images/portfolio/obj-12-1.jpg', title: 'СИП-дом в черновой отделке', location: 'г. Керчь', x: 89, y: 60.5 },
+  { anchor: 'obj-5', image: asset('/images/portfolio/obj-5-1.jpg'), title: 'СИП-дом с фасадом', location: 'г. Керчь', x: 94.5, y: 51 },
+  { anchor: 'obj-11', image: asset('/images/portfolio/obj-11-1.jpg'), title: 'СИП-надстройка (2-й этаж)', location: 'г. Керчь', x: 92, y: 56 },
+  { anchor: 'obj-12', image: asset('/images/portfolio/obj-12-1.jpg'), title: 'СИП-дом в черновой отделке', location: 'г. Керчь', x: 89, y: 60.5 },
 ];
 
 export function GeographyMap() {
@@ -85,7 +86,7 @@ export function GeographyMap() {
           <div className="relative mx-auto w-full max-w-[1000px]">
             {/* Рельеф полуострова — PNG с прозрачностью, без рамки и подложки */}
             <Image
-              src="/images/karta-geografiya.png"
+              src={asset('/images/karta-geografiya.png')}
               alt="Рельефная карта Крыма с метками построенных объектов компании"
               width={1140}
               height={519}

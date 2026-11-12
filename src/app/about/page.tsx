@@ -6,6 +6,7 @@ import { Reveal } from '@/components/layout/Reveal';
 import { Manifesto } from '@/components/home/sections';
 import { FinalCta } from '@/components/home/FinalCta';
 import { founder, values, pagesMeta, company } from '@/content/site';
+import { asset } from '@/lib/paths';
 
 export const metadata = {
   title: pagesMeta.about.title,
@@ -118,7 +119,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
             <Reveal>
               <Image
-                src="/images/certificates.jpg"
+                src={asset('/images/certificates.jpg')}
                 alt="Сертификаты соответствия системы добровольной сертификации"
                 width={1280}
                 height={372}

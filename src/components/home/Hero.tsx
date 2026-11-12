@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import { Reveal } from '@/components/layout/Reveal';
 import { company } from '@/content/site';
+import { asset } from '@/lib/paths';
 
 /**
  * Hero в духе Nordhaus: полноэкранная атмосфера, сдержанный заголовок,
@@ -13,7 +14,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-night text-[#f2ede2]" aria-label="Главный экран">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-aframe.jpg"
+          src={asset('/images/hero-aframe.jpg')}
           alt="А-образный дом среди крымских гор — атмосферное фото"
           fill
           priority

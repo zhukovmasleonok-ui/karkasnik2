@@ -9,6 +9,7 @@ import { LeadForm } from '@/components/forms/LeadForm';
 import { technologies, company } from '@/content/site';
 import { realProjects } from '@/content/projects';
 import { ProjectTabs } from '@/components/projects/ProjectTabs';
+import { asset } from '@/lib/paths';
 
 export function generateStaticParams() {
   return realProjects.map((p) => ({ slug: p.slug }));
@@ -28,7 +29,7 @@ export async function generateMetadata({
     description: `${p.description[0]} Цена от ${fmt.format(p.minPrice)} ₽ (${p.prices
       .map((x) => `${fmt.format(x.amount)} ₽ — ${x.label}`)
       .join('; ')}). Сметный расчёт и эскизный проект бесплатно.`,
-    openGraph: { images: [{ url: p.images[0] || '/images/project-sip.jpg' }] },
+    openGraph: { images: [{ url: p.images[0] || asset('/images/project-sip.jpg') }] },
   };
 }
 
@@ -187,7 +188,7 @@ export default async function ProjectPage({
                   <Link href={`/projects/${r.slug}`} className="group block">
                     <div className="skeleton relative aspect-[4/3] overflow-hidden rounded-sm">
                       <Image
-                        src={r.images[0] || '/images/project-sip.jpg'}
+                        src={r.images[0] || asset('/images/project-sip.jpg')}
                         alt={r.imageAlt}
                         fill
                         sizes="(max-width: 640px) 100vw, 33vw"
