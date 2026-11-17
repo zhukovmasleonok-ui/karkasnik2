@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import { Reveal } from '@/components/layout/Reveal';
 import { company } from '@/content/site';
-import { asset } from '@/lib/paths';
+import { HeroVideo } from '@/components/home/HeroVideo';
 
 /**
  * Hero в духе Nordhaus: полноэкранная атмосфера, сдержанный заголовок,
@@ -13,14 +12,8 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-night text-[#f2ede2]" aria-label="Главный экран">
       <div className="absolute inset-0">
-        <Image
-          src={asset('/images/hero-aframe.jpg')}
-          alt="А-образный дом среди крымских гор — атмосферное фото"
-          fill
-          priority
-          sizes="100vw"
-          className="hero-img object-cover"
-        />
+        {/* Фоновое видео: статичный кадр сверху плавно сменяется живым роликом */}
+        <HeroVideo />
         {/* Мягкое затемнение графитом: фото дышит, текст читается (AA) */}
         <div className="absolute inset-0 bg-gradient-to-t from-night/85 via-night/25 to-night/30" />
       </div>
